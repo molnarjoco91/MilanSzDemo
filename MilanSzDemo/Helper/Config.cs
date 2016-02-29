@@ -9,5 +9,7 @@ namespace MilanSzDemo.Helper
     public static class Config
     {
         public static string MapKey = "p5G1aEy986nnrokKRLa6~6Lvun7RH5dCC9jZwYURJQg~Ai94WQJDrsq9k8eZvPzIPEVSApGQeBXYn7VSDC2tIciCOiPF8qKiCk6olx6ApqSe";
+
+        public static string RssUrl = "http://www.index.hu/tech/rss";
     }
 }

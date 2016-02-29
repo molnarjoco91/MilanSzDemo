@@ -1,4 +1,5 @@
-﻿using MilanSzDemo.Model;
+﻿using MilanSzDemo.Helper;
+using MilanSzDemo.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,7 +27,7 @@ namespace MilanSzDemo.ViewModel
         {
             News = new ObservableCollection<Rss>();
             HttpClient client = new HttpClient();
-            string url = "http://index.hu/belfold/rss";
+            string url = Config.RssUrl;
             string xml;
             using (var webClient = new HttpClient())
             {
@@ -35,11 +36,12 @@ namespace MilanSzDemo.ViewModel
 
             XDocument document = XDocument.Parse(xml);
             List<Rss> rss = (from descendant in document.Descendants("item")
-                     select new Rss()
-                     {
-                         Description = descendant.Element("description").Value,
-                         Title = descendant.Element("title").Value
-                     }).ToList();
+                             select new Rss()
+                             {
+                                 Description = descendant.Element("description").Value,
+                                 Title = descendant.Element("title").Value,
+                                 Url = descendant.Element("link").Value
+                             }).ToList();
             foreach (var item in rss)
             {
                 News.Add(item);

@@ -8,14 +8,8 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-    </Grid>
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">     
+        
+        <TextBlock Text="{Binding New.Content}"/>
+    </ScrollViewer>
 </Page>

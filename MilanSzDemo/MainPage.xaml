@@ -8,8 +8,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView ItemsSource="{Binding News}"
-        HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ListView x:Name="RssList"
+                  ItemsSource="{Binding News}"
+                  HorizontalAlignment="Center" VerticalAlignment="Center"
+                  SelectionChanged="RssSelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

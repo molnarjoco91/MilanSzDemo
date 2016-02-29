@@ -1,4 +1,5 @@
-﻿using MilanSzDemo.View;
+﻿using MilanSzDemo.Model;
+using MilanSzDemo.View;
 using MilanSzDemo.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,14 @@ namespace MilanSzDemo
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = new MainViewModel();
+            viewModel = new MainViewModel();
+            this.DataContext = viewModel;
+        }
+
+        private void RssSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Rss rss = RssList.SelectedItem as Rss;
+            Frame.Navigate(typeof(DetailPage),rss);
         }
     }
 }

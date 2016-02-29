@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace MilanSzDemo.Model
 {
-    public class Rss : INotifyPropertyChanged
+    public class New : INotifyPropertyChanged
     {
         private string title;
-
-        private string description;
 
         public string Title
         {
@@ -30,27 +28,27 @@ namespace MilanSzDemo.Model
             }
         }
 
-        public string Description
+        private string content;
+
+        public string Content
         {
             get
             {
-                return this.description;
+                return this.content;
             }
             set
             {
-                if (value != this.description)
+                if (value != this.content)
                 {
-                    this.description = value;
+                    this.content = value;
                     NotifyPropertyChanged();
                 }
             }
         }
 
-        public string Url { get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
             {
